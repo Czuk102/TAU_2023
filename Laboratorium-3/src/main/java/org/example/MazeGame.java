@@ -155,7 +155,7 @@ public class MazeGame {
         return false;
     }
 
-    private boolean isGameWon() {
+    boolean isGameWon() {
         return playerX == endX && playerY == endY;
     }
 
@@ -218,5 +218,17 @@ public class MazeGame {
 
     public int getPlayerY() {
         return playerY;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setEndX(int endX) {
+        this.endX = endX;
+    }
+
+    public void setEndY(int endY) {
+        this.endY = endY;
     }
 }

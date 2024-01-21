@@ -104,5 +104,30 @@ class MazeGameTest {
         assertFalse(game.movePlayer('s')); // Nie można iść dalej w dół
     }
 
+    @Test
+    void testWinCondition() {
+        MazeGame game = new MazeGame(5, 5);
+        char[][] testMaze = new char[][] {
+                {'#', '#', '#', '#', '#'},
+                {'#', ' ', ' ', 'E', '#'},
+                {'#', ' ', '#', ' ', '#'},
+                {'#', 'S', ' ', ' ', '#'},
+                {'#', '#', '#', '#', '#'}
+        };
+        // Ustawienie pozycji mety
+        game.setEndX(3);
+        game.setEndY(1);
+
+        game.setMaze(testMaze);
+        game.setPlayerPosition(1, 1); // Ustawienie gracza na pozycji startowej 'S'
+
+        assertFalse(game.isGameWon()); // Gracz nie wygrał na starcie
+
+        game.movePlayer('d'); // Przesunięcie gracza w prawo
+        game.movePlayer('d'); // Przesunięcie gracza w prawo
+        game.movePlayer('d'); // Przesunięcie gracza w prawo
+        assertTrue(game.isGameWon()); // Gracz wygrał po dotarciu do mety
+    }
+
 
 }
