@@ -134,7 +134,7 @@ public class MazeGame {
         }
     }
 
-    private boolean movePlayer(char direction) {
+    boolean movePlayer(char direction) {
         int newX = playerX;
         int newY = playerY;
 
@@ -178,66 +178,13 @@ public class MazeGame {
         }
     }
 
-    public static void main(String[] args) {
-        MazeGame game = new MazeGame(5, 5);
-        game.startGame();
-    }
-
     public char[][] getMaze() {
         return maze;
     }
-
     public void setMaze(char[][] maze) {
         this.maze = maze;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getPlayerX() {
-        return playerX;
-    }
-
-    public void setPlayerX(int playerX) {
-        this.playerX = playerX;
-    }
-
-    public int getPlayerY() {
-        return playerY;
-    }
-
-    public void setPlayerY(int playerY) {
-        this.playerY = playerY;
-    }
-
-    public int getEndX() {
-        return endX;
-    }
-
-    public void setEndX(int endX) {
-        this.endX = endX;
-    }
-
-    public int getEndY() {
-        return endY;
-    }
-
-    public void setEndY(int endY) {
-        this.endY = endY;
-    }
     public int[] getStart() {
         return new int[]{playerX, playerY};
     }
@@ -245,5 +192,31 @@ public class MazeGame {
     // Metoda zwracająca pozycję końcową
     public int[] getEnd() {
         return new int[]{endX, endY};
+    }
+    public void setPlayerPosition(int x, int y) {
+        if (x >= 0 && x < width && y >= 0 && y < height) {
+            playerX = x;
+            playerY = y;
+        }
+    }
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public static void main(String[] args) {
+        MazeGame game = new MazeGame(5, 5);
+        game.startGame();
+    }
+
+    public int getPlayerX() {
+        return playerX;
+    }
+
+    public int getPlayerY() {
+        return playerY;
     }
 }
