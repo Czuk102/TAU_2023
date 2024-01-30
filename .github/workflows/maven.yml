@@ -32,6 +32,10 @@ jobs:
       with:
         chrome: true
         firefox: true
+    - name: Set up GeckoDriver
+      uses: webdriverio/setup-geckodriver@v1
+      with:
+        geckodriver-version: '0.34.0'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
