@@ -10,7 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.logging.Logger;
 
@@ -30,11 +32,20 @@ public class LoginSteps {
     @Given("I open the browser {string}")
     public void i_open_the_browser(String browser) {
         if (browser.equals("Chrome")) {
-            WebDriverManager.chromedriver().create();
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            driver = new ChromeDriver(options);
         } else if (browser.equals("Firefox")) {
             WebDriverManager.firefoxdriver().create();
-            driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            driver = new FirefoxDriver(options);
         }
     }
     @Given("I am on the saucedemo.com login page")
