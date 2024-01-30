@@ -39,12 +39,8 @@ public class LoginSteps {
             options.addArguments("--disable-dev-shm-usage");
             driver = new ChromeDriver(options);
         } else if (browser.equals("Firefox")) {
-            WebDriverManager.firefoxdriver().create();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
             driver = new FirefoxDriver(options);
         }
     }
