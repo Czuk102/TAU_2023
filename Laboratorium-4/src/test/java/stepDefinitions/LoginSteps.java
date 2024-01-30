@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,10 +30,10 @@ public class LoginSteps {
     @Given("I open the browser {string}")
     public void i_open_the_browser(String browser) {
         if (browser.equals("Chrome")) {
-            WebDriverManager.chromedriver().setup();
+            WebDriverManager.chromedriver().create();
             driver = new ChromeDriver();
         } else if (browser.equals("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
+            WebDriverManager.firefoxdriver().create();
             driver = new FirefoxDriver();
         }
     }
