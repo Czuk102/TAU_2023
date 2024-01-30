@@ -27,15 +27,6 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - name: Install Chrome, Firefox and Git on OS
-      uses: shreyash-Pandey-Katni/Chrome-Firefox-git-install-action@v2
-      with:
-        chrome: true
-        firefox: true
-    - name: Set up GeckoDriver
-      uses: webdriverio/setup-geckodriver@v1
-      with:
-        geckodriver-version: '0.34.0'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
